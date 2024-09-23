@@ -7,9 +7,9 @@ module.exports.isLoggedIn = (req, res, next) => {
     if (!req.isAuthenticated()) {
         req.session.redirectUrl = req.originalUrl;
         req.flash('error', 'You must be logged in to create new listings!');
-        return res.redirect('/login'); // Add return here
+        return res.redirect('/login'); 
     }
-    next(); // This will only be called if the user is authenticated
+    next(); 
 }
 
 
@@ -31,7 +31,6 @@ module.exports.isOwner = async (req, res, next) => {
     next();
 }
 
-// Validate Listing Middleware
 module.exports.validateListing = (req, res, next) => {
     let { error } = listingSchema.validate(req.body);
     if (error) {
@@ -43,7 +42,6 @@ module.exports.validateListing = (req, res, next) => {
   };
 
   
-// #14 - Validate Listing
 module.exports.validateReview = (req, res, next) => {
     let { error } = reviewSchema.validate(req.body);
     console.log(error);

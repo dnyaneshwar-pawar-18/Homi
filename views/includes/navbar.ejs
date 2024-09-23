@@ -7,12 +7,12 @@
     border-radius: 25px;
     padding: 0 1rem 0 1rem;
   }
-  
+
   .btn-search:hover {
     background-color: #fe424d;
     color: #fff;
   }
-  
+
   .btn-search i {
     margin-right: 0.5rem;
   }
@@ -22,14 +22,34 @@
     padding: 0.5rem 3rem 0.5rem 3rem;
     font-size: 0.9rem;
   }
+
+  .custom-logo {
+    height: 55px; 
+    width: 55px; 
+    border-radius: 50%; 
+    
+    transition: transform 0.3s;
+  }
+  
+  .custom-logo:hover {
+    transform: scale(1.1);
+  }
   
 </style>
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"
-      ><i class="fa-regular fa-compass"></i
-    ></a>
+<nav
+  class="navbar navbar-expand-md bg-body-light border-bottom sticky-top bg-light"
+>
+  <div class="container-fluid bg-light">
+    <a class="navbar-brand" href="/listings">
+      <img 
+        src="https://i.pinimg.com/736x/2b/81/a8/2b81a830e7be62b2437a493d2867c3d8.jpg" 
+        alt="Logo" 
+        class="custom-logo"
+      />
+    </a>
+    
+    
     <button
       class="navbar-toggler"
       type="button"
@@ -66,3 +86,4 @@
     </div>
   </div>
 </nav>
+

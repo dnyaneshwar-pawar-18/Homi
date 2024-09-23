@@ -1,10 +1,10 @@
 <% layout("/layouts/boilerplate") %>
 <div class="row mt-3">
-  <div class="col-8 offset-3">
-    <h3><%= listing.title %></h3>
+  <div class="col-md-8 col-12 offset-md-3">
+    <h3 class="fs-4 text-center text-md-start"><%= listing.title %></h3>
   </div>
 
-  <div class="card col-6 offset-3 show-card listing-card">
+  <div class="card col-md-6 col-12 offset-md-3 show-card listing-card">
     <div class="card listing-card">
       <img
         src="<%= listing.image.url %>"
@@ -24,40 +24,36 @@
       </div>
     </div>
   </div>
+
   <br />
 
-  <div class="btns">
+  <div class="btns d-flex justify-content-center mt-3">
     <a
       href="/listings/<%=listing._id%>/edit"
-      class="btn btn-dark col-1 offset-3"
-      >Edit
+      class="btn btn-dark col-md-2 col-4 mx-2"
+    >
+      Edit
     </a>
     <form action="/listings/<%= listing._id %>?_method=DELETE" method="post">
-      <button class="btn btn-danger offset-5">Delete</button>
+      <button class="btn btn-danger col-md-2 col-4 mx-2" style="padding: 0.5rem 1rem; font-size: 1rem; width: 100%;">
+        Delete
+      </button>
     </form>
+    
+    
+    
   </div>
 
-  <div class="col-8 offset-3 mb-3">
+  <div class="col-md-8 col-12 offset-md-3 mb-3">
     <% if (currUser) { %>
 
-    <h4>Leave a Review</h4>
+    <h4 class="fs-5 mt-4 text-center text-md-start">Leave a Review</h4>
     <form
       action="/listings/<%= listing._id %>/reviews"
       method="POST"
       novalidate
       class="needs-validation"
     >
-      <!-- <div class="mb-3 mt-3">
-        <label for="rating" class="form-label">Rating</label>
-        <input
-          type="range"
-          min="1"
-          max="5"
-          id="rating"
-          namereview[rating]
-          class="form-range"
-        />
-      </div> -->
       <div class="mb-3 mt-3">
         <label for="rating" class="form-label">Rating</label>
         <fieldset class="starability-slot">
@@ -117,9 +113,11 @@
           class="form-control"
           required
         ></textarea>
-        <div class="invalid-feedback">please add some comments for review</div>
+        <div class="invalid-feedback">
+          Please add some comments for the review
+        </div>
       </div>
-      <button class="btn btn-outline-dark">Submit</button>
+      <button class="btn btn-outline-dark w-100">Submit</button>
     </form>
     <% } %>
 
@@ -128,7 +126,7 @@
     <p><b>All Reviews</b></p>
     <div class="row">
       <% for(review of listing.reviews) { %>
-      <div class="card col-5 ms-3 mb-3">
+      <div class="card col-md-5 col-12 ms-md-3 mb-3">
         <div class="card-body">
           <h5 class="card-title">@<%= review.author.username %></h5>
           <p
@@ -142,7 +140,7 @@
           class="mb-3"
           method="POST"
         >
-          <button class="btn btn-sm btn-dark">Delete</button>
+          <button class="btn btn-sm btn-dark w-100">Delete</button>
         </form>
       </div>
       <% } %>
